@@ -1,18 +1,26 @@
 import React, { Component } from "react";
-import Nav from "./Components/Nav/Nav";
-import "./App.css";
+import { HashRouter, Link } from "react-router-dom";
+import routes from "./routes";
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Nav />
-        <h1 style={{ padding: "200px 35%" }}>
-          This is where your pages will appear
-        </h1>
-      </div>
+      <HashRouter>
+        <div>
+          <nav className="nav">
+            <div>WestSide University</div>
+            <div className="link-wrap">
+              <Link to="/" className="links">
+                Home
+              </Link>
+              <Link to="/about" className="links">
+                About
+              </Link>
+            </div>
+          </nav>
+          {routes}
+        </div>
+      </HashRouter>
     );
   }
 }
-
-export default App;
